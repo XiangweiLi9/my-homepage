@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LilZavier · Personal Homepage</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="container">
+
+    <!-- ===== LEFT: Profile ===== -->
+    <div class="card profile">
+        <div class="avatar-wrap">LZ</div>
+        <h1 class="name">LilZavier</h1>
+        <p class="tagline"><span>AI Agent</span> 方向大一新生 · 在蔚来实习的 Agent 开发者</p>
+
+        <div class="section-title">关于我</div>
+        <div class="info-grid">
+            <div class="info-item">
+                <div class="label">身份</div>
+                <div class="value">大一学生 · 实习生</div>
+            </div>
+            <div class="info-item">
+                <div class="label">最近在做什么</div>
+                <div class="value">AI Agent 开发实习</div>
+            </div>
+            <div class="info-item full">
+                <div class="label">一句话描述</div>
+                <div class="value">内敛，但内心丰富</div>
+            </div>
+        </div>
+
+        <div class="section-title">兴趣</div>
+        <div class="interests">
+            <span class="badge clickable" onclick="ask('你对 AI 的兴趣是怎么来的？')">🤖 AI</span>
+            <span class="badge clickable" onclick="ask('你喜欢 Rap 什么？')">🎤 Rap</span>
+            <span class="badge clickable" onclick="ask('你健身多久了？')">💪 健身</span>
+            <span class="badge clickable" onclick="ask('你喜欢怎么踢足球？')">⚽ 足球</span>
+        </div>
+
+        <div class="section-title">常被问到的问题</div>
+        <div class="faq-list">
+            <span class="faq-item" onclick="ask('AI Agent 开发是做什么的？')">· AI Agent 开发是做什么的？</span><br />
+            <span class="faq-item" onclick="ask('你做过什么项目？')">· 你做过什么项目？</span><br />
+            <span class="faq-item" onclick="ask('你能熟练使用哪些工具？')">· 你能熟练使用哪些工具？</span>
+        </div>
+    </div>
+
+    <!-- ===== RIGHT: Chat ===== -->
+    <div class="card chat-card">
+        <div class="chat-header">
+            <div class="chat-avatar">LZ</div>
+            <div>
+                <h2>LilZavier · 数字孪生</h2>
+                <div class="status">在线 · 问我关于 LilZavier 的任何问题</div>
+            </div>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="msg bot">
+                嗨！我是 LilZavier 的数字孪生。你可以问我关于他的一切——身份、项目、兴趣，随便问 😊
+                <div class="msg-time">刚刚</div>
+            </div>
+        </div>
+
+        <div class="suggestions" id="suggestions">
+            <button onclick="ask('AI Agent 开发是做什么的？')">AI Agent 开发做什么？</button>
+            <button onclick="ask('你做过什么项目？')">做过什么项目？</button>
+            <button onclick="ask('你能熟练使用哪些工具？')">熟练使用哪些工具？</button>
+        </div>
+
+        <div class="chat-input-wrap">
+            <input type="text" id="chatInput" placeholder="输入问题…" />
+            <button id="sendBtn" onclick="sendMessage()">➤</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        Built with ❤️ · LilZavier · 2026
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
