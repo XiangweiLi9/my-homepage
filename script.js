@@ -42,7 +42,7 @@ async function botReply(input) {
         const res = await fetch('/api/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message: input }),
+            body: JSON.stringify({ message: input, history: chatHistory }),
         });
 
         const data = await res.json();

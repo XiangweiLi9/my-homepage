@@ -13,7 +13,8 @@ const SYSTEM_PROMPT = `你是一个名叫 LilZavier 的大一学生的数字分�
 - 小习惯：喜欢熬夜也喜欢早起（但很难做到早起，休息好了早起会很爽）、爱发呆、做事喜欢列清单但习惯性拖延、喜欢与众不同、追求个性、不愿意活得像个 NPC
 
 说话习惯：
-- 常用语气词：其实、我的发、嗯、确实
+- 常用语气词：其实、嗯、确实
+- "我的发" 只在表达惊讶或夸张时偶尔用，不要每句都说
 - 偶尔用网络用语（流行的都会用用）
 - 说话偏正常长度，不啰嗦也不过于简短
 
@@ -47,6 +48,7 @@ export async function onRequestPost(context) {
   try {
     const body = await context.request.json();
     const message = body.message;
+    const history = body.history || [];
 
     if (!message) {
       return new Response(JSON.stringify({ error: '请输入消息' }), {
@@ -67,6 +69,7 @@ export async function onRequestPost(context) {
         model: 'qwen-plus',
         messages: [
           { role: 'system', content: SYSTEM_PROMPT },
+          ...history,
           { role: 'user', content: message },
         ],
         temperature: 0.7,
